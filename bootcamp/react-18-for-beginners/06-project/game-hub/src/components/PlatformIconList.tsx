@@ -2,7 +2,7 @@ import { FaWindows, FaPlaystation, FaApple, FaXbox, FaLinux, FaAndroid } from 'r
 import { MdPhoneIphone } from 'react-icons/md';
 import { SiNintendo } from 'react-icons/si';
 import { BsGlobe } from 'react-icons/bs';
-import { HStack, Icon } from '@chakra-ui/react';
+import { HStack, Icon, Tooltip } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
 import { Platform } from '../hooks/usePlatforms';
 
@@ -26,7 +26,9 @@ const PlatformIconList = ({ platforms }: Props) => {
   return (
     <HStack marginY={1}>
       {platforms.map((platform) => (
-        <Icon key={platform.id} as={iconMap[platform.slug]} color='gray.500' />
+        <Tooltip shouldWrapChildren key={platform.id} label={platform.name}>
+          <Icon as={iconMap[platform.slug]} color='gray.500' />
+        </Tooltip>
       ))}
     </HStack>
   );
