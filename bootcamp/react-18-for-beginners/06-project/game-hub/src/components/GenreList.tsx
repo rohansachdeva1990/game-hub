@@ -10,6 +10,7 @@ interface Props {
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
+  // Since we are fetching static data, we don't need the below anymore
   if (error) return null;
   if (isLoading) return <Spinner />;
 
